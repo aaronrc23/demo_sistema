@@ -1,0 +1,57 @@
+@import 'primeflex/primeflex.scss';
+
+.custom-card {
+    width: 100%; /* Ocupar todo el ancho disponible */
+  }
+
+  .input-barras{
+    width: 60%;
+  }
+
+  .header-modal{
+    background-color: aqua;
+  }
+
+  /*-----Contenedor de formulario--------*/
+  .ctn-formulario{
+    @apply field col-12 md:col-6;
+  }
+
+  /*-----------*/
+  
+
+  @media (max-width: 1385px) {
+    .codigobarra{
+        display: flex;
+        flex-direction: column;
+    }
+    .input-barras{
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 765px) {
+    .codigobarra{
+        display: flex;
+        flex-direction: row;
+    }
+    .btn-gc
+    {
+      @apply mt-2;
+    }
+    
+  }
+
+
+  @media (max-width: 420px) {
+    .codigobarra{
+        display: flex;
+        flex-direction: column;
+    }
+    .btn-gc
+    {
+      @apply mt-2;
+    }
+  }
+
+  

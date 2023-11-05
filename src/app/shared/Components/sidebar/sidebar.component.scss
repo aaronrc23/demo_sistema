@@ -1,0 +1,39 @@
+
+.sidebar{
+  background-color: #ce641d; 
+
+  @apply bg-[#007bc2] text-white fixed top-0 left-0 h-full w-64 py-4 overflow-y-auto;
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    a{
+      display: block;
+      color: #fff;
+      padding: 15px;
+      text-decoration: none;
+    }
+
+    li div{
+      display: flex;
+      text-align: center;
+      align-items: center;
+      width: 100%;
+      &:hover {
+        background: #e68200;
+      }
+      i{
+        margin-left: 1rem;
+      }
+    }
+  };
+
+}
+
+
+
+
+
+
+

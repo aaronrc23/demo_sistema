@@ -1,0 +1,144 @@
+<!-- ponele color al header p-dialog -->
+<p-dialog header="Añadir Producto" [(visible)]="displayAddModal" [modal]="true" [style]="{ width: '85vw'}"
+    [draggable]="false" [resizable]="false" [closable]="false" styleClass="p-card-header-secondary" >
+
+    <form [formGroup]="productForm" (ngSubmit)="addProduct() " class="bg-gray-50">
+        <!-- ... Tus campos de formulario ... -->
+        <div class="formgrid grid ">
+
+            <div class="field col-12 md:col-4 ctn-formulario">
+                <div class="text-center p-3 border-round-sm  font-bold">
+                    <div class="flex flex-column w-full">
+                        <label for="integer" class="font-bold block mb-2 text-left"> Almacen</label>
+                        <p-dropdown formControlName="Almacen" [editable]="true" placeholder="Eliga un Almacen"
+                            [style]="{ 'width': '100%' }"></p-dropdown>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="field col-12 md:col-4 ctn-formulario">
+                <div class="text-center p-3 border-round-sm  font-bold">
+                    <div class="flex flex-column w-full">
+                        <label for="integer" class="font-bold block mb-2 text-left"> Eliga una Categoria</label>
+
+                        <p-dropdown formControlName="category" [editable]="true" optionLabel="name"
+                            placeholder="Eliga un Categoria" [style]="{ 'width': '100%' }"></p-dropdown>
+                    </div>
+                </div>
+            </div>
+
+            <div class="field col-12 md:col-4 ctn-formulario">
+                <div class="text-center p-3 border-round-sm font-bold">
+                    <div class="flex flex-column w-full">
+                        <label for="integer" class="font-bold block mb-2 text-left">Unidad de Medida</label>
+                        <p-dropdown  formControlName="unidadMedida" [editable]="true" optionLabel="name"
+                        placeholder="Eliga un Categoria" [style]="{ 'width': '100%' }"></p-dropdown>
+                    </div>
+                </div>
+            </div>
+
+            <!---Fila 2--->
+
+            <div class="field col-10 md:col-4 ctn-formulario">
+                <div class="text-center p-3 border-round-sm  font-bold">
+                    <div class="flex flex-column w-full">
+                        <label for="integer" class="font-bold block mb-2 text-left">Nombre del Producto</label>
+                        <input pInputText pKeyFilter="int" placeholder="Codigo de barras" type="number"
+                            formControlName="nameProducto" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="ctn-formulario">
+                <div class="text-center p-3 border-round-sm  font-bold">
+                    <div class="flex flex-column w-full">
+                        <label for="integer" class="font-bold block mb-2 text-left">Detalle del Producto</label>
+                        <textarea rows="1" cols="30" pInputTextarea [autoResize]="true"
+                            placeholder="Descripcion de producto" formControlName="description"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="ctn-formulario">
+                <div class="text-center p-3 border-round-sm  font-bold">
+                    <div class="flex flex-column w-full ">
+                        <label for="integer" class="font-bold block mb-2 text-left"> Codigo Interno</label>
+                        <div class="w-full  flex justify-content-between  codigobarra">
+                            <input pInputText pKeyFilter="int" placeholder="Codigo de barras"
+                                class="input-barras md:full" type="number" formControlName="codigoDeBarras" [(ngModel)]="codigoDeBarras" />
+                            <button pButton pRipple label="Generar Codigo" class="p-button-success btn-gc"
+                                (click)="generateBarcode()"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ctn-formulario">
+                <div class="text-center p-3 border-round-sm  font-bold">
+                    <div class="flex flex-column w-full">
+                        <label for="integer" class="font-bold block mb-2 text-left">Cantidad de Stock</label>
+                        <input pInputText pKeyFilter="int" placeholder="Stock" type="number" formControlName="stock" />
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!---Fila 3--->
+            <div class="ctn-formulario">
+                <div class="text-center p-3 border-round-sm  font-bold w-full">
+                    <div class="flex flex-column w-full">
+                        <label for="integer" class="font-bold block mb-2 text-left">Precio venta</label>
+                        <input pInputText pKeyFilter="int" placeholder="S/0.00" type="number" formControlName="price" />
+
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="ctn-formulario">
+                <div class="text-center p-3 border-round-sm  font-bold">
+                    <div class="flex flex-column w-full">
+                        <label for="integer" class="font-bold block mb-2 text-left">Precio por mayor</label>
+                        <input pInputText pKeyFilter="int" placeholder="Stock" type="number"
+                            formControlName="priceMayor" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="ctn-formulario">
+                <div class="text-center p-3 border-round-sm font-bold">
+                    <div class="flex flex-column w-full">
+                        <label for="integer" class="font-bold block mb-2 text-left">Precio compra</label>
+                        <input pInputText pKeyFilter="int" placeholder="Stock" type="number"
+                            formControlName="priceCompra" />
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="ctn-formulario">
+                <div class="text-center p-3 border-round-sm font-bold">
+                    <p-fileUpload mode="basic" chooseLabel="Choose" name="demo[]" accept="image/*"></p-fileUpload>
+                </div>
+            </div>
+
+
+
+
+
+            <!------- --------->
+
+
+
+        </div>
+
+
+    </form>
+    <ng-template pTemplate="footer">
+        <p-button (click)="closeModal()" label="Cancel" styleClass="p-button-text mt-4" severity="danger" ></p-button>
+        <p-button (click)="addProduct()" label="Agregar" styleClass="p-button-text" severity="success"></p-button>
+    </ng-template>
+</p-dialog>

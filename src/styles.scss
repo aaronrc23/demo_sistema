@@ -1,1 +1,87 @@
-/* You can add global styles to this file, and also import other style files */
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+@import 'primeflex/primeflex.scss';
+
+
+:root {
+  --color-sidebar: #007bc2;
+  --tu-color-de-texto: #AD8350;
+}
+
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+@import "https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap";
+*{
+  box-sizing: border-box;
+  @apply font-custom ;
+  
+  
+}
+
+/*----Estructura del menu-------*/
+.contd-plantilla{
+  @apply flex h-screen;
+}
+
+.sbsidebar{
+  background-color: var(--color-sidebar);
+  @apply hidden sm:block w-64  text-white p-4 overflow-y-auto;
+}
+.ctn2{
+  @apply flex-1 p-2;
+}
+
+.ctn-pagina{
+  @apply flex-1 p-2 bg-[#F5F5F5] text-black overflow-y-auto; 
+}
+
+.ctnp {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.app-footer {
+  flex: 1;
+}
+
+/*--card-table----*/
+.card {
+  background-color: white;
+  height: auto;
+}
+.sub-card {
+
+  @apply mx-4 mt-3 h-auto;
+}
+
+/*-------------*/
+
+/*----Fin de la estructura  del menu------*/
+
+@media screen and (max-width: 790px) {
+  .sidebar {
+    width: 180px;
+  }
+
+  .sbsidebar{
+    display: none;
+  }
+  .sub-card {
+    margin: 0;
+  }
+ 
+}
+@media screen and (max-width: 710px) {
+  .sidebar {
+    display: none;
+  }
+ 
+}
+

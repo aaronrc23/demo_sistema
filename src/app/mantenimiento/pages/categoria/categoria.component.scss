@@ -1,0 +1,24 @@
+:root {
+  --tu-color-de-fondo: #764134;
+  --tu-color-de-texto: #ad8350;
+}
+
+/*card*/
+// .card {
+//   background-color: #35393c;
+//   height: auto;
+// }
+
+/* Cambiar el color de fondo de la cabecera */
+.ui-table-header th {
+  background-color: #057edb;
+  color: white;
+  text-align: center;
+}
+
+.ui-table-contenido td {
+  @apply text-center h-1;
+}
+// .sub-card {
+//   @apply mx-1;
+// }

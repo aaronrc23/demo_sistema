@@ -1,0 +1,76 @@
+<div class="contd-plantilla">
+  <!-- Sidebar (Visible en pantallas grandes) -->
+  <div class="sbsidebar">
+    <div class="ctn2">
+      <!-- Contenido del sidebar -->
+      <app-sidebar></app-sidebar>
+    </div>
+  </div>
+
+  <!-- Contenido de la página -->
+  <div class="ctn-pagina">
+    <div class="containerr">
+      <!-- Barra de navegación -->
+      <app-navbar></app-navbar>
+      <!-- Contenido Principal -->
+      <div class="ctnp">
+        <div class="card">
+          <div>
+            <div class="sub-card">
+              <!--------- button modal ------------>
+              <p-button label="AddProduct" (click)="showAddModal()"></p-button>
+
+              <p-table [value]="products" [tableStyle]="{ 'min-width': '10rem' } " [resizableColumns]="true"
+                [paginator]="true" [rows]="5" [showCurrentPageReport]="true" scrollHeight="600px"
+                currentPageReportTemplate="Mostrar {first} a {last} de {totalRecords} registros"
+                (onPage)="pageChange($event)" [rowsPerPageOptions]="[10, 25, 50]" styleClass="p-datatable-gridlines"
+                [scrollable]="true">
+                <ng-template pTemplate="header" class="header1">
+                  <tr class="ui-table-header">
+                    <th>Codigo Barra</th>
+                    <th>Nombre</th>
+                    <th>precio</th>
+                    <th>stock</th>
+                    <th>descripcion</th>
+                    <th>imagen</th>
+                    <th>Opciones</th>
+
+                  </tr>
+                </ng-template>
+
+                <ng-template pTemplate="body" let-productos>
+                  <tr class="ui-table-contenido">
+                    <td>{{ productos.codigo_barra }}</td>
+                    <td>{{ productos.nombre }}</td>
+                    <td>{{ productos.precio_venta }}</td>
+                    <td>{{ productos.stock }}</td>
+                    <td>{{ productos.descripcion }}</td>
+                    <td><img src="{{ productos.imagen }}" width="50px"></td>
+                    <td>
+                      <div class="flex justify-content-center">
+                        <p-button icon="pi pi-power-off" [rounded]="true" severity="danger" class="ml-3"></p-button>
+                      </div>
+                    </td>
+
+                  </tr>
+                </ng-template>
+              </p-table>
+            </div>
+          </div>
+
+          <!--------------Modal------------------>
+          <app-add-edit-productos [displayAddModal]="displayAddModal"
+            (clickClose)="hideAddModal($event)"></app-add-edit-productos>
+
+
+
+          <h1>productos</h1>
+          <img id="barCode" src="" alt="bar code">
+          <button (click)="generateBarcode()">Generar codigo pdf</button>
+          <button (click)="downloadPDF()">Descargar pdf</button>
+          <router-outlet></router-outlet>
+          <app-footer></app-footer>
+        </div>
+      </div>
+    </div>
+  </div>
